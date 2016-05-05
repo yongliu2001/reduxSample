@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "watchify src/app.js -o public/bundle.js -t [ babelify --preset [ react es2015]] ",
+    "build": "watchify src/app.js -o public/bundle.js -t [ babelify --presets [ es2015 react ] ] ",
     "server": "cd public; live-server --port=1234 --entry-file=index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,12 @@
     "babel-preset-react": "^6.5.0",
     "babelify": "^7.3.0",
     "live-server": "^1.0.0",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.4.0",
+    "react-router-redux": "^4.0.4",
+    "redux": "^3.5.2",
     "watchify": "^3.7.0"
   }
 }
