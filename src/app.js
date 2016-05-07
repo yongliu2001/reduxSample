@@ -8,12 +8,12 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import * as reducers from './reducers';
 import App from './components/App';
 import Sidebar from './components/Sidebar';
+import VisibleCards from './components/VisibleCards';
 
 reducers.routing = routerReducer;
 
 const store = createStore(combineReducers(reducers));
 const history = syncHistoryWithStore(browserHistory, store);
-const routes =(<Route path='/' component={App}></Route>);
 
 function run() {
 	let state = store.getState();
@@ -21,7 +21,9 @@ function run() {
 	ReactDOM.render(
 		<Provider store={store}>
 			<Router history={history}>
-				{routes}
+				<Route path='/' component={App}>
+					<Route path='/deck/:deckId' component={VisibleCards}></Route>
+				</Route>
 			</Router>
 		</Provider>
 		, document.getElementById('root'));
